@@ -1,12 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const spawn = require('child_process').spawn;
+const cors = require('cors');
+
 
 //initializing express application
 const app = new express();
 const port = process.env.PORT;
 app.use(express.json());
-
+app.use(cors({
+    origin:"127.0.0.1:3000"
+}))
 
 
 let subjectData = [];
