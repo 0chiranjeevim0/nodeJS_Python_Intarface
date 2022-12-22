@@ -6,7 +6,7 @@ const cors = require('cors');
 
 //initializing express application
 const app = new express();
-const port = process.env.PORT;
+const port = 3000;
 app.use(express.json());
 app.use(cors({
     origin:"127.0.0.1:3000"
