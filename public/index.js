@@ -4,7 +4,7 @@ const spawn = require('child_process').spawn;
 
 //initializing express application
 const app = new express();
-const port = process.env.PORT;
+const port = 3000;
 app.use(express.json());
 
 
