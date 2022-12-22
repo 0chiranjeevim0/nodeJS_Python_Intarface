@@ -21,8 +21,7 @@ app.post("/subjects",(request,response) =>{
     //invokes a python function
     const childProcess = spawn('python',['./public/middleware.py',JSON.stringify(request.body)]);
     childProcess.stdout.on("data",(data) =>{
-        console.log(data.toString());
-        response.json({status:"data Recieved"});
+        response.json({data:data.toString()});
     })
     
 })

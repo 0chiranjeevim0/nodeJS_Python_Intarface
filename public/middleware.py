@@ -1,6 +1,6 @@
 import sys
 import json
-
+from main import invoke
 subjects = []
 
 def convertData():
@@ -15,4 +15,4 @@ def convertData():
         subject = []
     return subjects
 
-print(convertData())
+print(invoke())

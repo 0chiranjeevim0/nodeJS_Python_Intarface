@@ -6,7 +6,7 @@ from numpy import random
 
 POPULATION_SIZE = 200
 
-
+SUBJECTS = [['DP-2:NAC:5', 'GP-2:RUK:5', 'PS-1:SRS:5', 'TAM-1:LANG-1:6', 'ENG-1:LANG-2:6', 'LAB:EP-1:VAO:3'], ['AP-1:KRT:5', 'RM:NAC:5', 'LAP:SRS:5', 'TAM-2:LANG-1:5', 'LANG-2:LANG-2:5', 'LAB:EP-3:KAN:3', 'EDC:IS:EDC:2'], ['FMCS:RUK:5', 'FC:ANU:5', 'FHP:KAA:5', 'PEC:KAN:5', 'RP:VAO:5', 'LAB:EP-5:KRT:5'], ['OB:ANU:5', 'CP:RUK:5', 'PTD:KAA:5', 'BM:VAO:5', 'LAB:PA:SRS:5', 'EDC:CS:EDC:5'], ['OB-2:NAC:5', 'MCB:KAN:5', 'CS:KRT:5', 'HP:ANU:4', 'LAB:CA:KAA:3', 'EDC:PS:EDC:4', 'EDC:HRM:EDC:4']]
 
 
 class Individual(object):
@@ -115,24 +115,15 @@ def main():
             new_generation.append(child)
         population = new_generation
 
-        print(f"Generation:{generation}")
-        print(population[0].chromosome)
-        print(f"Fitness:{population[0].fitness}")
 
         generation += 1
 
     return population[0].chromosome
 
-if __name__ =="__main__":
 
-    SUBJECTS = [['DP-2:NAC:5', 'GP-2:RUK:5', 'PS-1:SRS:5', 'TAM-1:LANG-1:6', 'ENG-1:LANG-2:6', 'LAB:EP-1:VAO:3'], ['AP-1:KRT:5', 'RM:NAC:5', 'LAP:SRS:5', 'TAM-2:LANG-1:5', 'LANG-2:LANG-2:5', 'LAB:EP-3:KAN:3', 'EDC:IS:EDC:2'], ['FMCS:RUK:5', 'FC:ANU:5', 'FHP:KAA:5', 'PEC:KAN:5', 'RP:VAO:5', 'LAB:EP-5:KRT:5'], ['OB:ANU:5', 'CP:RUK:5', 'PTD:KAA:5', 'BM:VAO:5', 'LAB:PA:SRS:5', 'EDC:CS:EDC:5'], ['OB-2:NAC:5', 'MCB:KAN:5', 'CS:KRT:5', 'HP:ANU:4', 'LAB:CA:KAA:3', 'EDC:PS:EDC:4', 'EDC:HRM:EDC:4']]
-    
-    d=main()
-    print('value:',d)
-
-
-    
-    
+def invoke():
+    d = main()
+    return d
     
 
         
