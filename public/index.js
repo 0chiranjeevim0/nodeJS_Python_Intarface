@@ -25,7 +25,10 @@ app.post("/subjects",(request,response) =>{
     //invokes a python function
     const childProcess = spawn('python',['./public/middleware.py',JSON.stringify(request.body)]);
     childProcess.stdout.on("data",(data) =>{
-        response.json({data:data.toString()});
+       
+       res = data.toString()
+
+       response.json({data:JSON.parse(res)})
     })
     
 })
