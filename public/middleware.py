@@ -1,22 +1,52 @@
 import sys
 import json
 from main import invoke
-subjects = []
+
+year1 = []
+year2 = []
+year3 = []
+year4 = []
+year5 = []
 
 
 
-def convertData():
-    #function to convert the JSON data into 2-D array
-    input = sys.argv[1]
-    data = json.loads(input)
-    subject = []
-    for key in data:
-        for element in data[key]:
-           subject.append(data[key][element])
-        subjects.append(subject)
-        subject = []
-    return subjects
+def convertData(currentYear):
+    sysin = sys.argv[1]
+    subjects = json.loads(sysin)
+    for i in subjects:
+        lab = i["ISLab"]
+        duration = str(i["duration"])
+        staff = i["staff"]
+        subject = i["subject"]
+        subjectCode = i["subjectCode"]
+        year = str(i["year"])
 
+        if(currentYear == 1 and year == '1'):
+            if(lab == "false"):
+                year1.append(subjectCode+":"+subject+":"+staff+":"+duration)
+            else:
+                year1.append("lab"+":"+subjectCode+":"+subject+":"+staff+":"+duration)
+        if(currentYear == 2 and year == '2'):
+            if(lab == "false"):
+                year2.append(subjectCode+":"+subject+":"+staff+":"+duration)
+            else:
+                year2.append("lab"+":"+subjectCode+":"+subject+":"+staff+":"+duration) 
+        if(currentYear == 3 and year == '3'):
+            if(lab == "false"):
+                year3.append(subjectCode+":"+subject+":"+staff+":"+duration)
+            else:
+                year3.append("lab"+":"+subjectCode+":"+subject+":"+staff+":"+duration) 
+        if(currentYear == 4 and year == '4'):
+            if(lab == "false"):
+                year4.append(subjectCode+":"+subject+":"+staff+":"+duration)
+            else:
+                year4.append("lab"+":"+subjectCode+":"+subject+":"+staff+":"+duration)
+        if(currentYear == 5 and year == '5'):
+            if(lab == "false"):
+                year5.append(subjectCode+":"+subject+":"+staff+":"+duration)
+            else:
+                year5.append("lab"+":"+subjectCode+":"+subject+":"+staff+":"+duration)       
+               
 
 def parseData(index):
 
@@ -49,6 +79,21 @@ def appendMaster():
     return time_table
 
 
+def convertDatas():
+    for i in range(1,5):
+        convertData(i)
 
-val = appendMaster()
-print(json.dumps(val))
+    subjectDict = {
+
+        1:year1,
+        2:year2,
+        3:year3,
+        4:year4,
+        5:year5,
+    }
+    return subjectDict
+res = convertDatas()
+print(json.dumps(res))Z
+
+#val = appendMaster()
+#print(json.dumps(val))
